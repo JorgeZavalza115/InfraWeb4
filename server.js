@@ -1,31 +1,27 @@
 // Casillas, González, Robles y Zavalza - Servicios Escolares
-var express = require('express');
-var bodyParser = require('body-parser');
-// Instanciamos el objeto express
-var app = express();
-// Enviar parámetros por medio del formulario
-app.use(bodyParser.urlencoded({extended:false}));
+const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv").config();
+const userRoute = require("./src/routes/Materias"); //23 ENERO 2022
 
-// Ruteo
-app.get(
-    '/',function(req, res){
-        res.sendFile(__dirname + '/html/index.html');
-    }
-);
+// settings
+const app = express();
+const port = process.env.PORT || 9000;
 
-app.get(
-    '/kardex',function(req, res){
-        res.sendFile(__dirname + '/html/Kardex.html');
-    }
-);
+// middlewares
+app.use(express.json());
+app.use("/api", userRoute);
 
-app.post(
-    '/login',function(req, res){
-        var user_name = req.body.user;
-        var password = req.body.password;
-        console.log("El nombre de usuaio es: " + user_name + " password: " + password);
-        res.end('Envio finalizado');
-    }
-);
-app.listen(9000);
-console.log("Server inicializado. SerEsc.");
+// routes
+app.get("/", (req, res) => {
+  res.send("Welcome to my API-Infraestructura de Desarrollo Web");
+});
+
+// mongodb connection
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("Connected to MongoDB Atlas"))
+  .catch((error) => console.error(error));
+
+// server listening
+app.listen(port, () => console.log("Server listening to-Infra Web enero 2022", port));
