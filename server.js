@@ -2,7 +2,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const userRoute = require("./src/routes/Materias"); //23 ENERO 2022
+const userRoute = require("./src/routes/Materias"); 
+const userRoute2 = require("./src/routes/Alumnos");
 
 // settings
 const app = express();
@@ -11,6 +12,9 @@ const port = process.env.PORT || 9000;
 // middlewares
 app.use(express.json());
 app.use("/api", userRoute);
+
+app.use(express.json());
+app.use("/api", userRoute2);
 
 // routes
 app.get("/", (req, res) => {
