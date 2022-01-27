@@ -1,0 +1,58 @@
+header{
+    background-image: url(../../imagenes/logo.jpg);
+    background-position-y: center;
+    height: 210px;
+    text-align: center;
+ }
+ body{
+    padding: 0%;
+    background-color: #F5EDE9;
+    background-size: cover; 
+ }
+ .containerOwnApp {
+     box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
+     padding-top: 5px;
+  }
+   
+  .login-page {
+    padding: 10% 0 0;
+    margin: 0 auto 100px;
+    max-width: 360px;
+    position: relative;
+  }
+   
+  .login-form {
+     box-shadow: 0 0 27px 0 rgba(84, 84, 84, 0.62);
+  }
+   
+  .login-form-header {
+     padding-top: 16px;
+  }
+   
+  .login-from-row {
+     padding-top: 16px;
+     padding-bottom: 16px;
+  }
+   
+  .login-form-font-header {
+     font-size:30px; 
+     font-weight: bold;
+  }
+   
+  .login-form-font-header span {
+     color: #1D48E5;
+  }
+ 
+ /*a{
+     background: #1D48E5;
+     color: #FFFFFF;
+     font-weight: bold;
+  }*/
+ 
+  footer{
+    background:#1D48E5;
+    color: #FFFFFF;
+    text-align: center;
+    height: 100px;
+  }
+ 
