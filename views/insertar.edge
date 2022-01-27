@@ -1,0 +1,18 @@
+@layout('layouts.app')
+@section('content')
+    <form action="Ingresar/Guardar" method="post">
+        <label for="">Nombre:</label>
+        <input type="text" placeholder="Ingrese Nombre" name="nombre">
+        <label for="">No.Ctrl:</label>
+        <input type="text" placeholder="Ingrese No. Ctrl" name="noctrl">
+        <label for="">Semestre:</label>
+        <input type="text" placeholder="Ingrese Semestre" name="semestre">
+        <label for="">Carrera:</label>
+        <input type="text" placeholder="Ingrese Carrera" name="carrera">
+        <label for="">Plan de Estudios:</label>
+        <input type="text" placeholder="Ingrese Plan de Estudios" name="kardex.planest">
+        <label for="">Especialidad:</label>
+        <input type="text" placeholder="Ingrese Plan de Especialidad" name="kardex.especialidad">
+        <input type="submit">
+    </form>
+@endsection

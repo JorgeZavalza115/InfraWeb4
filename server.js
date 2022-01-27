@@ -31,13 +31,27 @@ app.get("/", (req, res) => {
   //res.send("Welcome to my API-Infraestructura de Desarrollo Web");
 });
 
+app.get("/Alumnos/Ingresar", (req, res) => {
+  res.render('insertar')
+  //res.sendFile(__dirname + '/html/insertar.html');
+});
+app.get("/Alumnos/Mostrar", (req, res) => {
+  //res.render('insertar')
+  res.sendFile(__dirname + '/html/mostrar.html');
+});
+
 app.get("/kardex", async (req, res) => {
-  const alumnos = await Alumnos.find({})
+  const alumnos = await Alumnos.find({nombre:'JORGE ZAVALZA ARROYO'})
   console.log(alumnos)
   //res.sendFile(__dirname + '/html/kardex.html', {alumnos});
   res.render('Kardex', {alumnos})
 })
 
+app.post('/Alumnos/Ingresar/Guardar', (req, res) => {
+  Alumnos.create(req.body, (error, alumno) => {
+    res.redirect('/kardex')
+  })
+})
 // mongodb connection
 mongoose
   .connect(process.env.MONGODB_URI)
