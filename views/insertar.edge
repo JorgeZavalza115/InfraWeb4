@@ -1,18 +1,26 @@
 @layout('layouts.app')
 @section('content')
-    <form action="Ingresar/Guardar" method="post">
+    <link rel="stylesheet" href="../css/alumnos.css">
+    <form action="Ingresar/Guardar" method="post" style="background: white;width: 60%;padding: 3px;border-radius:10px;
+    ">
         <label for="">Nombre:</label>
         <input type="text" placeholder="Ingrese Nombre" name="nombre">
+        <br>
         <label for="">No.Ctrl:</label>
         <input type="text" placeholder="Ingrese No. Ctrl" name="noctrl">
+        <br>
         <label for="">Semestre:</label>
         <input type="text" placeholder="Ingrese Semestre" name="semestre">
+        <br>
         <label for="">Carrera:</label>
         <input type="text" placeholder="Ingrese Carrera" name="carrera">
+        <br>
         <label for="">Plan de Estudios:</label>
         <input type="text" placeholder="Ingrese Plan de Estudios" name="kardex.planest">
+        <br>
         <label for="">Especialidad:</label>
         <input type="text" placeholder="Ingrese Plan de Especialidad" name="kardex.especialidad">
+        <br>
         <input type="submit">
     </form>
 @endsection
