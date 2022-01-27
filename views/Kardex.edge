@@ -1,0 +1,79 @@
+@layout('layouts.apps')
+@section('content')
+<table border="1">
+                    @each(alumno in alumnos)
+                    <thead>
+                        <tr>
+                            <th>No. DE CONTROL:</th>
+                            <th>NOMBRE:</th>
+                            <th>PLAN DE ESTUDIOS:</th>
+                        </tr>
+                        <tr>
+                            <td>{{alumno.noctrl}}</td>
+                            <td>{{alumno.nombre}}</td>
+                            <td>{{alumno.kardex.planest}}</td>
+                        </tr>
+                        <tr>
+                            <th>SEMESTRE:</th>
+                            <th>CARRERA:</th>
+                            <th>ESPECIALIDAD:</th>
+                        </tr>
+                        <tr>
+                            <td>{{alumno.semestre}}</td>
+                            <td>{{alumno.carrera}}</td>
+                            <td>{{alumno.kardex.especialidad}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>NO.</th>
+                            <th colspan="2">MATERIA</th>
+                            <th>CRÉDITOS</th>
+                            <th>CALIFICACIÓN</th>
+                            <th>EVALUACIÓN</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                        <div class="semestre">
+                            <tr>
+                                <th colspan="7">{{alumno.kardex.regsemestre.periodo}}</th>
+                            </tr>
+                            <div class="materia">
+                                <tr>
+                                    <td>{{alumno.kardex.regsemestre.asignatura.no}}</td>
+                                    <td>{{alumno.kardex.regsemestre.asignatura.clave}}</td>
+                                    <td>{{alumno.kardex.regsemestre.asignatura.materia}}</td>
+                                    <td>{{alumno.kardex.regsemestre.asignatura.creditos}}</td>
+                                    <td>{{alumno.kardex.regsemestre.asignatura.calificacion}}</td>
+                                    <td>{{alumno.kardex.regsemestre.asignatura.evaluacion}}</td>
+                                    <td>{{alumno.kardex.regsemestre.asignatura.observaciones}}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <th>PROMEDIO SEMESTRAL</th>
+                                    <td>{{alumno.kardex.regsemestre.prosemestral}}</td>
+                                    <th>PROMEDIO CREDITOS APROB./CUR.</th>
+                                    <td>{{alumno.kardex.regsemestre.creditosapr}}</td>
+                                </tr>
+                            </div>
+                        </div>
+                        <div class="totales">
+                            <tr>
+                                <td colspan="3"></td>
+                                <th>PROMEDIO ARITMÉTICO:</th>
+                                <td>{{alumno.kardex.promarit}}</td>
+                                <th>CRÉDITOS APROBADOS:</th>
+                                <td>{{alumno.kardex.totalcreditos}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"></td>
+                                <th>PROMEDIO PONDERADO:</th>
+                                <td>{{alumno.kardex.prompond}}</td>
+                                <th>PORCENTAJE DE AVANCE:</th>
+                                <td>{{alumno.kardex.porcenavance}}</td>
+                            </tr>
+                        </div>
+                    </tbody>
+                    @endeach
+                </table>
+
+@endsection

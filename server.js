@@ -2,8 +2,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-var bodyParser = require('body-parser');
 
+var bodyParser = require('body-parser');
 const userRoute = require("./src/routes/Materias"); 
 const userRoute2 = require("./src/routes/Alumnos");
 const Alumnos = require("./src/models/Alumnos");
@@ -13,7 +13,7 @@ const { config, engine } = require('express-edge');
 const app = express();
 const port = process.env.PORT || 9000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // middlewares
@@ -33,7 +33,8 @@ app.get("/", (req, res) => {
 app.get("/kardex", async (req, res) => {
   const alumnos = await Alumnos.find({})
   console.log(alumnos)
-  res.sendFile(__dirname + '/html/kardex.html', {alumnos});
+  //res.sendFile(__dirname + '/html/kardex.html', {alumnos});
+  res.render('Kardex', {alumnos})
 })
 
 // mongodb connection
