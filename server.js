@@ -9,6 +9,7 @@ const userRoute2 = require("./src/routes/Alumnos");
 const Alumnos = require("./src/models/Alumnos");
 
 // settings
+const { config, engine } = require('express-edge');
 const app = express();
 const port = process.env.PORT || 9000;
 
@@ -21,6 +22,8 @@ app.use("/api", userRoute);
 
 app.use(express.json());
 app.use("/api", userRoute2);
+app.use(engine);
+app.set('views', `${__dirname}/views`);
 
 // routes
 app.get("/", (req, res) => {
