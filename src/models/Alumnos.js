@@ -40,7 +40,7 @@ const alumnosSchema = mongoose.Schema({
                             type : String,
                             require:true
                         },
-                        SATCA:{
+                        clave:{
                             type : String,
                             require:true
                         },

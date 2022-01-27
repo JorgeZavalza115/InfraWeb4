@@ -8,7 +8,7 @@
 <body>
     <header>
         <div>
-            <img src="" alt="">
+            <img src="../imagenes/sep.gif" alt="">
         </div>
         <div>
             <p>Sistema Integral de Información</p>
@@ -16,14 +16,14 @@
             <p>Portal de alumnos</p>
         </div>
         <div>
-            <img src="" alt="">
+            <img src="../imagenes/dgest.png" alt="">
         </div>
     </header>
     <main>
         <div class="contenido">
             <div class="ser_esc">
                 <div>
-                    <img src="" alt="">
+                    <img src="../imagenes/sep_r.gif" alt="">
                 </div>
                 <div>
                     <p>Instituto Tecnológico de Tepíc</p>
@@ -31,11 +31,132 @@
                     <p>Segimiento del Alumno</p>
                 </div>
                 <div>
-                    <img src="" alt="">
+                    <img src="../imagenes/escudo.gif" alt="">
                 </div>  
             </div>
-            <div>
-                
+            <div class="datos">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>No. DE CONTROL:</th>
+                            <th>NOMBRE:</th>
+                            <th>PLAN DE ESTUDIOS:</th>
+                        </tr>
+                        <tr>
+                            <td>{{alumnos.noctrl}}</td>
+                            <td>{{alumnos.nombre}}</td>
+                            <td>{{alumnos.planest}}</td>
+                        </tr>
+                        <tr>
+                            <th>SEMESTRE:</th>
+                            <th>CARRERA:</th>
+                            <th>ESPECIALIDAD:</th>
+                        </tr>
+                        <tr>
+                            <td>{{alumnos.semestre}}</td>
+                            <td>{{alumnos.carrera}}</td>
+                            <td>{{alumnos.especialidad}}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>NO.</th>
+                            <th colspan="2">MATERIA</th>
+                            <th>CRÉDITOS</th>
+                            <th>CALIFICACIÓN</th>
+                            <th>EVALUACIÓN</th>
+                            <th>OBSERVACIONES</th>
+                        </tr>
+                        <div class="semestre">
+                            <tr>
+                                <th colspan="7">{{alumnos.periodo}}</th>
+                            </tr>
+                            <div class="materia">
+                                <tr>
+                                    <td>[insertar no]</td>
+                                    <td>[insertar clave]</td>
+                                    <td>[insertar materia]</td>
+                                    <td>[insertar creditos]</td>
+                                    <td>[insertar calificacion]</td>
+                                    <td>[insertar evaluacion]</td>
+                                    <td>[insertar observaciones]</td>
+                                </tr>
+                                <tr>
+                                    <td>[insertar no]</td>
+                                    <td>[insertar clave]</td>
+                                    <td>[insertar materia]</td>
+                                    <td>[insertar creditos]</td>
+                                    <td>[insertar calificacion]</td>
+                                    <td>[insertar evaluacion]</td>
+                                    <td>[insertar observaciones]</td>
+                                </tr>
+                                <tr>
+                                    <td>[insertar no]</td>
+                                    <td>[insertar clave]</td>
+                                    <td>[insertar materia]</td>
+                                    <td>[insertar creditos]</td>
+                                    <td>[insertar calificacion]</td>
+                                    <td>[insertar evaluacion]</td>
+                                    <td>[insertar observaciones]</td>
+                                </tr>
+                                <tr>
+                                    <td>[insertar no]</td>
+                                    <td>[insertar clave]</td>
+                                    <td>[insertar materia]</td>
+                                    <td>[insertar creditos]</td>
+                                    <td>[insertar calificacion]</td>
+                                    <td>[insertar evaluacion]</td>
+                                    <td>[insertar observaciones]</td>
+                                </tr>
+                                <tr>
+                                    <td>[insertar no]</td>
+                                    <td>[insertar clave]</td>
+                                    <td>[insertar materia]</td>
+                                    <td>[insertar creditos]</td>
+                                    <td>[insertar calificacion]</td>
+                                    <td>[insertar evaluacion]</td>
+                                    <td>[insertar observaciones]</td>
+                                </tr>
+                                <tr>
+                                    <td>[insertar no]</td>
+                                    <td>[insertar clave]</td>
+                                    <td>[insertar materia]</td>
+                                    <td>[insertar creditos]</td>
+                                    <td>[insertar calificacion]</td>
+                                    <td>[insertar evaluacion]</td>
+                                    <td>[insertar observaciones]</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <th>PROMEDIO SEMESTRAL</th>
+                                    <td>[insertar prosemestral]</td>
+                                    <th>PROMEDIO CREDITOS APROB./CUR.</th>
+                                    <td>[insertar creditosapr]</td>
+                                </tr>
+                            </div>
+                        </div>
+                        <div class="totales">
+                            <tr>
+                                <td colspan="3"></td>
+                                <th>PROMEDIO ARITMÉTICO:</th>
+                                <td>[insertar promarit]</td>
+                                <th>CRÉDITOS APROBADOS:</th>
+                                <td>[insertar totalcreditos]</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"></td>
+                                <th>PROMEDIO PONDERADO:</th>
+                                <td>[insertar prompond]</td>
+                                <th>PORCENTAJE DE AVANCE:</th>
+                                <td>[insertar porcenavance]</td>
+                            </tr>
+                        </div>
+                    </tbody>
+                </table>
+            </div>
+            <div class="botones">
+                <button>CERRAR</button>
+                <button>IMPRIMIR</button>
             </div>
         </div>
     </main>
