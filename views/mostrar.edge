@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@layout('layouts.app')
+@section('content')
     <table>
-        <a href="">Insertar Alumno</a>
+        <a href="/Alumnos/Ingresar">Insertar Alumno</a>
         <thead>
             <tr>
                 <th>ID</th>
@@ -20,6 +13,7 @@
             </tr>
         </thead>
         <tbody>
+            @each(alumno in alumnos)
             <tr>
                 <td>{{alumno._id}}</td>
                 <td>{{alumno.nombre}}</td>
@@ -32,7 +26,7 @@
                     <a href="/Alumnos/borrar/{{alumno._id}}">Borrar</a>
                 </td>
             </tr>
+            @endeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection

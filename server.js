@@ -32,13 +32,64 @@ app.get("/", (req, res) => {
 });
 
 app.get("/Alumnos/Ingresar", (req, res) => {
-  res.render('insertar')
+  res.render('insertar',)
   //res.sendFile(__dirname + '/html/insertar.html');
 });
-app.get("/Alumnos/Mostrar", (req, res) => {
-  //res.render('insertar')
-  res.sendFile(__dirname + '/html/mostrar.html');
+app.get("/Alumnos/Editar/:id", async (req, res) => {
+  const alumno = await Alumnos.findById(req.params.id)
+  console.log(alumno)
+
+  res.render('editar', {alumno})
+  //res.sendFile(__dirname + '/html/editar.html');
 });
+
+// Editar
+app.post('/Alumnos/Editar/Guardar', (req, res) => {
+  const idAlumno = req.body.id
+  console.log(idAlumno)
+
+  Alumnos.findByIdAndUpdate(idAlumno, {
+    nombre: req.body.nombre,
+    noctrl: req.body.noctrl,
+    semestre: req.body.semestre,
+    carrera: req.body.carrera,
+    'kardex.planest': req.body.planest,
+    'kardex.especialidad': req.body.planest
+  }, (error, alumno) => {
+    console.log(error, idAlumno)
+    res.redirect('/Alumnos/Mostrar')
+  })
+})
+
+app.get("/Alumnos/Mostrar", async (req, res) => {
+  const alumnos = await Alumnos.find({})
+  //console.log(alumnos)
+  res.render('mostrar', {alumnos})
+  //res.sendFile(__dirname + '/html/mostrar.html');
+});
+
+//Borrar
+app.get("/Alumnos/Borrar/:id", async (req, res) => {
+  const alumno = await Alumnos.findById(req.params.id)
+  console.log(alumno)
+
+  res.render('borrar', {alumno})
+  //res.sendFile(__dirname + '/html/editar.html');
+});
+
+app.post('/Alumnos/borrar', (req, res) => {
+  const idAlumno = req.body.id
+  console.log(idAlumno)
+
+  Alumnos.findByIdAndRemove(idAlumno, function(err){
+    if(err){
+      res.send(err);
+    }else{
+      res.redirect('/Alumnos/Mostrar')
+    }
+  })
+
+})
 
 app.get("/kardex", async (req, res) => {
   const alumnos = await Alumnos.find({nombre:'JORGE ZAVALZA ARROYO'})
@@ -49,7 +100,7 @@ app.get("/kardex", async (req, res) => {
 
 app.post('/Alumnos/Ingresar/Guardar', (req, res) => {
   Alumnos.create(req.body, (error, alumno) => {
-    res.redirect('/kardex')
+    res.redirect('/Alumnos/Mostrar')
   })
 })
 // mongodb connection

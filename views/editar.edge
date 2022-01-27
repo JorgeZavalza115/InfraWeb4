@@ -1,0 +1,21 @@
+@layout('layouts.app')
+@section('content')
+    <form action="/Alumnos/Editar/Guardar" method="post">
+        <label for="">ID:</label>
+        <input type="text" name="id" value="{{alumno._id}}" readonly>
+        <label for="">Nombre:</label>
+        <input type="text" name="nombre" value="{{alumno.nombre}}" >
+        <label for="">No.Ctrl:</label>
+        <input type="text" name="noctrl" value="{{alumno.noctrl}}" >
+        <label for="">Semestre:</label>
+        <input type="text" name="semestre" value="{{alumno.semestre}}" >
+        <label for="">Carrera:</label>
+        <input type="text" name="carrera" value="{{alumno.carrera}}" >
+        <label for="">Plan de Estudios:</label>
+        <input type="text" name="planest" value="{{alumno.kardex.planest}}" >
+        <label for="">Especialidad:</label>
+        <input type="text" name="especialidad" value="{{alumno.kardex.especialidad}}">
+        <button>Editar Alumno</button>
+        <a href="/Alumnos/Mostrar">Volver</a>
+    </form>
+@endsection
