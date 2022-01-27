@@ -27,7 +27,8 @@ app.set('views', `${__dirname}/views`);
 
 // routes
 app.get("/", (req, res) => {
-  res.send("Welcome to my API-Infraestructura de Desarrollo Web");
+  res.render('index')
+  //res.send("Welcome to my API-Infraestructura de Desarrollo Web");
 });
 
 app.get("/kardex", async (req, res) => {
